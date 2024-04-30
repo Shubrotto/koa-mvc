@@ -10,3 +10,14 @@ exports.get = (ctx) => {
     ctx.body = { statusCode: "fail", user: userData };
   }
 };
+
+exports.post = (ctx) => {
+  try {
+    const newUser = ctx.request.body;
+    ctx.status = 200;
+    ctx.body = { statusCode: "Successfully created data!", user: newUser };
+  } catch (error) {
+    ctx.status = 400;
+    ctx.body = { statusCode: "fail", user: user };
+  }
+};
